@@ -133,3 +133,45 @@ class Program
         b.Method_dynamic();
     }
 }
+
+
+
+
+//コンストラクター
+   class Run 
+   {
+    public string long;
+    public Run(string long)
+    {
+        this.long = long;
+        Console.WriteLine("距離" + this.long);
+    }
+
+    public static void Main()
+    {
+        Run run = new Run("1000m");
+    }
+   }
+
+//デリゲート
+C#のdelegateは、ひとことでまとめると「メソッドを格納する変数の型」です。
+厳密にはメソッドそのものを格納するのではなくメソッドの場所を格納しているのですが、
+delegateを使う上ではメソッドを格納しているという認識でも問題ないでしょう。
+また、delegateが持つことのできるメソッドは一つだけではなく、複数格納できることが特徴です。
+
+delegate void DelegateName(string s);
+//仮引数がややこしいな
+
+class TestClass
+{
+    static void MethodA(string str)
+    {
+        Console.WriteLine("あなたの名前は" + str "です。");
+    }
+
+    public static void main()
+    {
+        DelegateName d = new DelegateName(MethodA);
+        d("山田たろう");
+    }
+}
